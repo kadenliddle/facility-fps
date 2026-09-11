@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holdfast — Sector K</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="game-wrap">
+    <canvas id="c"></canvas>
+
+    <div id="hud" class="hidden">
+      <div id="crosshair"></div>
+      <div id="hp-panel">
+        <div class="label">ARMOR</div>
+        <div id="hp-bar"><div id="hp-fill"></div></div>
+        <div id="hp-num">100</div>
+      </div>
+      <div id="ammo-panel">
+        <div class="label" id="weapon-name">PISTOL</div>
+        <div id="ammo-num"><span id="mag">12</span><span class="sep">/</span><span id="reserve">48</span></div>
+      </div>
+      <div id="toast" class="hidden"></div>
+      <div id="prompt" class="hidden"></div>
+    </div>
+
+    <div id="overlay">
+      <div class="card">
+        <h1>HOLDFAST</h1>
+        <p class="sub">SECTOR K — FACILITY INFILTRATION</p>
+        <p class="blurb">Clear the corridor. Reach the exit hatch.</p>
+        <ul class="controls">
+          <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</li>
+          <li><kbd>Mouse</kbd> Look</li>
+          <li><kbd>LMB</kbd> Fire &nbsp; <kbd>R</kbd> Reload</li>
+          <li><kbd>1</kbd>/<kbd>2</kbd> Pistol / SMG &nbsp; <kbd>Esc</kbd> Unlock</li>
+        </ul>
+        <button id="start-btn" type="button">CLICK TO START</button>
+        <p class="disclaimer">Unofficial fan homage to late-90s N64 corridor shooters. Not affiliated with Nintendo, Rare, or any related trademarks.</p>
+      </div>
+    </div>
+
+    <div id="death" class="hidden">
+      <div class="card">
+        <h2>OPERATIVE DOWN</h2>
+        <p>Sector K remains hostile.</p>
+        <button id="restart-btn" type="button">RESTART</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
