@@ -1,0 +1,218 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0e10;
+  font-family: "Courier New", Courier, monospace;
+  color: #c8d0d4;
+  user-select: none;
+}
+
+#game-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#c {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #1a2226;
+}
+
+.hidden { display: none !important; }
+
+/* —— HUD —— */
+#hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+#crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border: 2px solid rgba(180, 220, 210, 0.85);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+}
+
+#crosshair::before,
+#crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(180, 220, 210, 0.85);
+}
+#crosshair::before {
+  left: 50%; top: -6px; width: 2px; height: 26px; margin-left: -1px;
+}
+#crosshair::after {
+  top: 50%; left: -6px; height: 2px; width: 26px; margin-top: -1px;
+}
+
+#hp-panel, #ammo-panel {
+  position: absolute;
+  bottom: 22px;
+  background: rgba(18, 24, 28, 0.82);
+  border: 3px solid #4a555c;
+  padding: 8px 12px;
+  min-width: 140px;
+}
+
+#hp-panel { left: 22px; }
+#ammo-panel { right: 22px; text-align: right; }
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #6ec4b8;
+  margin-bottom: 4px;
+}
+
+#hp-bar {
+  width: 120px;
+  height: 14px;
+  background: #2a3238;
+  border: 2px solid #5a666e;
+  margin-bottom: 4px;
+}
+
+#hp-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #3a7a6a, #5ec4a8);
+  transition: width 0.12s linear;
+}
+
+#hp-num, #ammo-num {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d8e0e4;
+}
+
+#ammo-num .sep { color: #6a787e; margin: 0 4px; }
+
+#toast {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 18, 20, 0.9);
+  border: 3px solid #2a8a8a;
+  color: #8fdcd0;
+  padding: 14px 28px;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+#prompt {
+  position: absolute;
+  bottom: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 18, 20, 0.85);
+  border: 2px solid #8a5a3a;
+  color: #e0c8a8;
+  padding: 8px 16px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+/* —— Overlays —— */
+#overlay, #death {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(20,28,32,0.92), rgba(6,8,10,0.97));
+}
+
+.card {
+  max-width: 460px;
+  width: calc(100% - 40px);
+  background: #1a2226;
+  border: 4px solid #4a5a60;
+  padding: 28px 32px;
+  box-shadow: 8px 8px 0 #0a0c0e;
+}
+
+.card h1 {
+  font-size: 42px;
+  letter-spacing: 0.22em;
+  color: #8fdcd0;
+  margin-bottom: 4px;
+}
+
+.card h2 {
+  font-size: 28px;
+  letter-spacing: 0.14em;
+  color: #c87868;
+  margin-bottom: 10px;
+}
+
+.sub {
+  color: #8a4a3a;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.blurb {
+  color: #9aa8ae;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.controls {
+  list-style: none;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: #b0bcc2;
+  line-height: 1.9;
+}
+
+kbd {
+  display: inline-block;
+  background: #2a343a;
+  border: 2px solid #5a666e;
+  padding: 1px 6px;
+  margin: 0 2px;
+  font-family: inherit;
+  font-size: 12px;
+  color: #d0e0e4;
+}
+
+#start-btn, #restart-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #2a6a62;
+  border: 3px solid #4ab0a0;
+  color: #e8f8f4;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+#start-btn:hover, #restart-btn:hover {
+  background: #348878;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  font-size: 10px;
+  color: #5a666e;
+  line-height: 1.4;
+}
